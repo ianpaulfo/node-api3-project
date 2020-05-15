@@ -52,7 +52,7 @@ router.put("/:id", validatePostId, (req, res) => {
 });
 
 
-// custom middleware	// custom middleware
+// custom middleware
 
 
 function validatePostId(req, res, next) {
@@ -76,4 +76,4 @@ function validatePostId(req, res, next) {
 }
 
 
-module.exports = router;	module.exports = router;
+module.exports = router;
