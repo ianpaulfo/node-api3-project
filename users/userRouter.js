@@ -1,6 +1,5 @@
 const express = require("express");
 const userDb = require("./userDb");
-const postDb = require("../posts/postDb");
 
 
 const router = express.Router();
@@ -10,7 +9,7 @@ router.post("/", validateUser, (req, res) => {
   userDb
     .insert(req.body)
     .then(u => {
-      res.status(201).json(u);
+      res.status(200).json(u);
     })
     .catch(() => {
       res.status(500).json({
@@ -36,7 +35,7 @@ router.post("/:id/posts", validateUserId, validatePost, (req, res) => {
 
 router.get("/", (req, res) => {
   userDb
-    .get()
+    .get(req.query)
     .then(u => {
       res.status(200).json(u);
     })
@@ -153,4 +152,4 @@ function validatePost(req, res, next) {
 }
 
 
-module.exports = router;	module.exports = router;
+module.exports = router;
